@@ -1,4 +1,4 @@
-package fr.lleotraas.myapplication
+package fr.lleotraas.myapplication.service
 
 import android.app.Service
 import android.content.Intent

@@ -9,8 +9,9 @@ import com.bumptech.glide.Glide
 import fr.lleotraas.myapplication.Utils.Companion.convertKelvinToCelsius
 import fr.lleotraas.myapplication.databinding.WeatherRowBinding
 import fr.lleotraas.myapplication.model.Weather
+import fr.lleotraas.myapplication.retrofit.RetrofitInstance
 
-class WeatherAdapter() : ListAdapter<Weather, WeatherAdapter.MainViewHolder>(Companion) {
+class WeatherAdapter : ListAdapter<Weather, WeatherAdapter.MainViewHolder>(Companion) {
 
     inner class MainViewHolder(val binding: WeatherRowBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -33,12 +34,13 @@ class WeatherAdapter() : ListAdapter<Weather, WeatherAdapter.MainViewHolder>(Com
 
         holder.binding.apply {
             weatherRowCityTv.text = weather.name
-            weatherRowTemperatureTv.text = String.format("%2.0f", convertKelvinToCelsius(weather.main.temp))
+            weatherRowTemperatureTv.text = String.format("%2.0f", weather.main.temp)
 
-            Glide.with(root)
-                .load(Utils.getWeatherIcon(weather.weather[0].icon))
-                .into(weatherRowWeatherImg)
-
+            RetrofitInstance.getBitmapFrom(weather.weather[0].icon) {
+                Glide.with(holder.binding.root)
+                    .load(it)
+                    .into(weatherRowWeatherImg)
+            }
         }
     }
 

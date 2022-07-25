@@ -1,10 +1,9 @@
 package fr.lleotraas.myapplication
 
-import android.graphics.drawable.Drawable
-
 class Utils {
 
     companion object {
+
         fun convertKelvinToCelsius(temperature: Double): Double {
             return temperature - 273.15
         }
@@ -13,18 +12,25 @@ class Utils {
             return (seconds / 60.0 * 100.0).toInt()
         }
 
-        fun getWeatherIcon(iconId: String): Int {
-            return when(iconId) {
-                "01d" -> { R.drawable.clear_sky }
-                "02d" -> { R.drawable.few_cloud }
-                "03d" -> { R.drawable.scattered_cloud }
-                "04d" -> { R.drawable.broken_clouds }
-                "09d" -> { R.drawable.shower_rain }
-                "10d" -> { R.drawable.rain }
-                "11d" -> { R.drawable.thunderstorm }
-                "13d" -> { R.drawable.snow }
-                else -> { R.drawable.mist }
+        fun getCityForRequest(time: Double): String {
+            when (time) {
+                0.0 -> {
+                    return "rennes,35000,fr"
+                }
+                10.0 -> {
+                    return "paris,fr"
+                }
+                20.0 -> {
+                    return "nantes,fr"
+                }
+                30.0 -> {
+                    return "bordeaux,fr"
+                }
+                40.0 -> {
+                    return "lyon,69000,fr"
+                }
             }
+            return ""
         }
     }
 }
