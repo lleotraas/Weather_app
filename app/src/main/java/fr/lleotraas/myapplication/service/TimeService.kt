@@ -13,7 +13,6 @@ class TimeService : Service(){
     private val timer = Timer()
 
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
-
         val time = intent.getDoubleExtra(TIME_EXTRA, 0.0)
         timer.scheduleAtFixedRate(TimeTask(time), 0, 1000)
         return START_NOT_STICKY
@@ -27,13 +26,11 @@ class TimeService : Service(){
     private inner class TimeTask(private var time: Double) : TimerTask() {
 
         override fun run() {
-
             val intent = Intent(TIMER_UPDATED)
             time++
             intent.putExtra(TIME_EXTRA, time)
             sendBroadcast(intent)
         }
-
     }
 
     companion object {

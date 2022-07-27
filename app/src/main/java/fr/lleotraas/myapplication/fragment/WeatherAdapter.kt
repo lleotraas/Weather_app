@@ -1,4 +1,4 @@
-package fr.lleotraas.myapplication
+package fr.lleotraas.myapplication.fragment
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import fr.lleotraas.myapplication.Utils.Companion.convertKelvinToCelsius
 import fr.lleotraas.myapplication.databinding.WeatherRowBinding
 import fr.lleotraas.myapplication.model.Weather
 import fr.lleotraas.myapplication.retrofit.RetrofitInstance

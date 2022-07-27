@@ -12,22 +12,10 @@ import org.junit.Assert.*
 class ExampleUnitTest {
 
     @Test
-    fun temperature_isCorrect() {
-        val temperatureExpected = 37.5
-        val temperatureToTest = 310.65
-        assertEquals(temperatureExpected, Utils.convertKelvinToCelsius(temperatureToTest), 0.10)
-    }
-
-    @Test
     fun convertTimeInPercent_isCorrect() {
         val percentExpected = 75
         val timeToTest = 45.0
         assertEquals(percentExpected, Utils.convertTimeInPercent(timeToTest))
-    }
-
-    @Test
-    fun getWeatherIcon_isCorrect() {
-
     }
 
     @Test

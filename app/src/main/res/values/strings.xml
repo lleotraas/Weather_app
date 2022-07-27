@@ -4,6 +4,7 @@
     <string name="again_btn_text">recommencer</string>
     <string name="activity_main_welcome_tv">bienvenue dans l\'application météorologique</string>
     <string name="activity_main_btn_text">voir la météo</string>
+    <string name="intent_flag">service_intent_flag</string>
     <string-array name="sentence_array">
         <item>Nous téléchargeons les données…</item>
         <item>C’est presque fini…</item>
