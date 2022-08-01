@@ -13,8 +13,8 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import fr.lleotraas.myapplication.*
-import fr.lleotraas.myapplication.Utils.Companion.BUNDLE_STATE_INDEX
-import fr.lleotraas.myapplication.Utils.Companion.BUNDLE_STATE_TIME
+import fr.lleotraas.myapplication.BUNDLE_STATE_INDEX
+import fr.lleotraas.myapplication.BUNDLE_STATE_TIME
 import fr.lleotraas.myapplication.databinding.FragmentWeatherBinding
 import fr.lleotraas.myapplication.dependencies.WeatherApplication
 import fr.lleotraas.myapplication.model.Weather
@@ -72,8 +72,7 @@ class WeatherFragment : Fragment() {
     }
 
     private fun event(time: Double) {
-
-        viewModel.addWeatherToList(Utils.getCityForRequest(time))
+        viewModel.addWeatherToList(getCityForRequest(time))
 
         if (time == 60.0) {
             binding.apply {
@@ -142,11 +141,11 @@ class WeatherFragment : Fragment() {
             time = intent.getDoubleExtra(TIME_EXTRA, 0.0)
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                binding.fragmentWeatherProgressBar.setProgress(Utils.convertTimeInPercent(time), true)
+                binding.fragmentWeatherProgressBar.setProgress(convertTimeInPercent(time), true)
             } else {
-                binding.fragmentWeatherProgressBar.progress = Utils.convertTimeInPercent(time)
+                binding.fragmentWeatherProgressBar.progress = convertTimeInPercent(time)
             }
-            binding.fragmentWeatherChronoTv.text = "${Utils.convertTimeInPercent(time)}%"
+            binding.fragmentWeatherChronoTv.text = "${convertTimeInPercent(time)}%"
             event(time)
             stopTimer()
         }

@@ -4,18 +4,13 @@ import org.junit.Test
 
 import org.junit.Assert.*
 
-/**
- * Example local unit test, which will execute on the development machine (host).
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
 class ExampleUnitTest {
 
     @Test
     fun convertTimeInPercent_isCorrect() {
         val percentExpected = 75
         val timeToTest = 45.0
-        assertEquals(percentExpected, Utils.convertTimeInPercent(timeToTest))
+        assertEquals(percentExpected, convertTimeInPercent(timeToTest))
     }
 
     @Test
@@ -23,31 +18,31 @@ class ExampleUnitTest {
         var cityExpected = "rennes,35000,fr"
         var timeToTest = 0.0
 
-        assertEquals(cityExpected, Utils.getCityForRequest(timeToTest))
+        assertEquals(cityExpected, getCityForRequest(timeToTest))
 
         cityExpected = "paris,fr"
         timeToTest = 10.0
 
-        assertEquals(cityExpected, Utils.getCityForRequest(timeToTest))
+        assertEquals(cityExpected, getCityForRequest(timeToTest))
 
         cityExpected = "nantes,fr"
         timeToTest = 20.0
 
-        assertEquals(cityExpected, Utils.getCityForRequest(timeToTest))
+        assertEquals(cityExpected, getCityForRequest(timeToTest))
 
         cityExpected = "bordeaux,fr"
         timeToTest = 30.0
 
-        assertEquals(cityExpected, Utils.getCityForRequest(timeToTest))
+        assertEquals(cityExpected, getCityForRequest(timeToTest))
 
         cityExpected = "lyon,69000,fr"
         timeToTest = 40.0
 
-        assertEquals(cityExpected, Utils.getCityForRequest(timeToTest))
+        assertEquals(cityExpected, getCityForRequest(timeToTest))
 
         cityExpected = ""
         timeToTest = 50.0
 
-        assertEquals(cityExpected, Utils.getCityForRequest(timeToTest))
+        assertEquals(cityExpected, getCityForRequest(timeToTest))
     }
 }
