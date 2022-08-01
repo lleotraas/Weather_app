@@ -1,22 +1,18 @@
 package fr.lleotraas.myapplication
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import fr.lleotraas.myapplication.model.Weather
 import fr.lleotraas.myapplication.repository.WeatherRepository
 import fr.lleotraas.myapplication.retrofit.RetrofitInstance
 import fr.lleotraas.myapplication.utils_instrumented_test.CITY
 import fr.lleotraas.myapplication.utils_instrumented_test.getOrAwaitValue
 import kotlinx.coroutines.runBlocking
-
-import org.junit.Test
-import org.junit.runner.RunWith
-
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.FixMethodOrder
 import org.junit.Rule
+import org.junit.Test
+import org.junit.runner.RunWith
 import org.junit.runners.MethodSorters
 
 /**
