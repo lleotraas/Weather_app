@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
 import fr.lleotraas.myapplication.*
 import fr.lleotraas.myapplication.BUNDLE_STATE_INDEX
 import fr.lleotraas.myapplication.BUNDLE_STATE_TIME
@@ -20,7 +21,9 @@ import fr.lleotraas.myapplication.dependencies.WeatherApplication
 import fr.lleotraas.myapplication.model.Weather
 import fr.lleotraas.myapplication.service.TimeService
 import fr.lleotraas.myapplication.service.TimeService.Companion.TIME_EXTRA
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class WeatherFragment : Fragment() {
 
     private lateinit var binding: FragmentWeatherBinding
@@ -30,11 +33,7 @@ class WeatherFragment : Fragment() {
     private var index = 0
     private lateinit var adapter: WeatherAdapter
     private var broadcastTimer: Intent? = null
-    private val viewModel: WeatherViewModel by viewModels {
-        ViewModelFactory(
-            (requireActivity().application as WeatherApplication).weatherRepository
-        )
-    }
+    private val viewModel: WeatherViewModel by viewModels()
 
     @SuppressLint("WrongConstant")
     override fun onCreateView(

@@ -5,8 +5,11 @@ import androidx.lifecycle.MutableLiveData
 import fr.lleotraas.myapplication.model.Weather
 import fr.lleotraas.myapplication.retrofit.WeatherApi
 import retrofit2.Response
+import javax.inject.Inject
 
-class WeatherRepository(val api: WeatherApi) {
+class WeatherRepository @Inject constructor (
+    val api: WeatherApi
+    ) {
 
     private val weatherList = MutableLiveData<ArrayList<Weather>>()
 

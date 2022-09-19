@@ -3,9 +3,11 @@ package fr.lleotraas.myapplication.activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import dagger.hilt.android.AndroidEntryPoint
 import fr.lleotraas.myapplication.R
 import fr.lleotraas.myapplication.databinding.ActivityWeatherBinding
 
+@AndroidEntryPoint
 class WeatherActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityWeatherBinding

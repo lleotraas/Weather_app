@@ -4,13 +4,17 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
+import fr.lleotraas.myapplication.BuildConfig.API_KEY
 import fr.lleotraas.myapplication.model.Weather
 import fr.lleotraas.myapplication.repository.WeatherRepository
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException
+import javax.inject.Inject
 
-class WeatherViewModel(
+@HiltViewModel
+class WeatherViewModel @Inject constructor (
     private val weatherRepository: WeatherRepository
 ) : ViewModel() {
 
@@ -21,7 +25,7 @@ class WeatherViewModel(
                 weatherRepository.api.getCurrentWeatherFrom(
                     cityName,
                     "metric",
-                    BuildConfig.API_KEY
+                    API_KEY
                 )
             } catch (exception: IOException) {
                 Log.e(
