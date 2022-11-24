@@ -6,5 +6,3 @@ import fr.lleotraas.myapplication.repository.WeatherRepository
 import fr.lleotraas.myapplication.retrofit.RetrofitInstance
 @HiltAndroidApp
 class WeatherApplication : Application()
-//    private val retrofitInstance by lazy { RetrofitInstance.weatherApi }
-//    val weatherRepository by lazy { WeatherRepository(retrofitInstance) }
